@@ -2,4 +2,4 @@
 
 interact with the chart at [http://bl.ocks.org/micahstubbs/8b10c96cec707c1a68b1](http://bl.ocks.org/micahstubbs/8b10c96cec707c1a68b1)
 
-![linegraph](linegraph.png)
+[![linegraph](linegraph.png)](http://bl.ocks.org/micahstubbs/8b10c96cec707c1a68b1)
