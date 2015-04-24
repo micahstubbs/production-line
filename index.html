@@ -105,7 +105,9 @@ d3.csv("single-well.csv", function(error, data) {
             .style("stroke", function() { // Add the colors dynamically
                 return d.color = color(d.key); })
             .attr("id", 'tag'+d.key.replace(/\s+/g, '')) // assign ID
-            .attr("d", valueline(d.values));
+            .attr("d", valueline(d.values))
+            .on("mousemove", mMove)
+            .append("title");
 
         // Add the Legend
         svg.append("text")
@@ -151,6 +153,13 @@ d3.csv("single-well.csv", function(error, data) {
         .style("text-anchor", "middle")
         .text("bbls");
 
+    function mMove(){
+            var m = d3.mouse(this);
+            var mouseoverValue = Math.round(y.invert(m[1]));
+            var dateFormat = d3.time.format("%A, %B %e %Y")
+            var mouseoverDate = dateFormat(x.invert(m[0]));
+            d3.selectAll(".line").select("title").html(mouseoverValue + " bbls" + "\n" + mouseoverDate);
+        }
 
 });
 
